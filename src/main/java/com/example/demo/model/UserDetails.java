@@ -28,7 +28,7 @@ import lombok.ToString;
 public class UserDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
 	private String fullName;
 	private String email;
