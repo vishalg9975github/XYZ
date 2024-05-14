@@ -9,6 +9,8 @@ import com.example.demo.model.UserDetails;
 import com.example.demo.repository.UserDetailsRepository;
 import com.example.demo.service.UserDetailsService;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -18,6 +20,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	private static final Logger logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 
 	@Override
+	@Transactional
 	public UserDetails saveUserDetails(UserDetails userDetails) {
 
 		logger.info("In userDetailsServiceImpl class");
