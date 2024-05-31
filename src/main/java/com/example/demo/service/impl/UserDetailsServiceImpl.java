@@ -15,7 +15,7 @@ import jakarta.transaction.Transactional;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
-	private UserDetailsRepository userDetailsrepository;
+	private UserDetailsRepository userDetailsRepository;
 
 	private static final Logger logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 
@@ -23,8 +23,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Transactional
 	public UserDetails saveUserDetails(UserDetails userDetails) {
 
-		logger.info("In userDetailsServiceImpl class");
-		return userDetailsrepository.save(userDetails);
+		logger.info("In userDetailsServiceImpl save details method");
+		return userDetailsRepository.save(userDetails);
+	}
+
+	@Override
+	public UserDetails getUserDetails(Integer id) {
+		logger.info("In userDetailsServiceImpl fetch details method");
+
+		return userDetailsRepository.findById(id).get();
 	}
 
 }
